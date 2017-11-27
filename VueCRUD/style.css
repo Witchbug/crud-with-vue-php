@@ -77,6 +77,7 @@ button{
 .modalContent{
     min-height: 330px;
     padding: 44px;
+<<<<<<< HEAD
 }
 
 .crossBox{
@@ -89,4 +90,6 @@ button{
 
 input{
     padding: 5px;
+=======
+>>>>>>> 1e8ba9af5c115615b185792f8f81826a431fdf0b
 }
