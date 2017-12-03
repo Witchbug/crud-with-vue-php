@@ -1,148 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>VueCRUD</title>
     <link rel="stylesheet" href="style.css">
-<<<<<<< HEAD
-    
 </head>
+
 <body>
-<div id="myapp">
-    <div class="container">
-        <h1 class="fleft">Users</h1>
-        <button class="fright addNew" @click="showingAddModal=true">Add New</button>
-=======
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-</head>
-<body>
-<div class="id">
-    <div class="container">
-        <h1 class="fleft">Users</h1>
-        <button class="fright addNew">Add New</button>
->>>>>>> 1e8ba9af5c115615b185792f8f81826a431fdf0b
-        <div class="clear"></div>
-        <hr>
-        
-        <table class="list">
-            <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Mamun</td>
-                <td>mamun@envisio.com</td>
-                <td>123456789</td>
-<<<<<<< HEAD
-                <td><button @click="showingEditModal=true">Edit</button></td>
-                <td><button @click="showingDeleteModal=true">Delete</button></td>
-            </tr>
-        </table>
-    </div>
-  
-<!--Showing add model form    -->
-        
-    <div class="modal" id="addModal" v-if="showingAddModal">
-        <div class="modalContainer">
-            <div class="modalHeading" >
-                <p class="fleft">Add New User </p>
-                <button class="fright crossBox" @click="showingAddModal=false">x</button>
-                <div class="clear"></div>
-                
-            </div>
-            <div class="modalContent">
-                <form>
-                    <label for="">Name: </label>
-                    <input type="text" placeholder="Jhon"><br><br>
-                    <label for="">Email: </label>
-                    <input type="text" placeholder="jhon@jhon.com"><br><br>
-                    <label for="">Phone: </label>
-                    <input type="text" placeholder="1225xxxx"><br><br>
-                    <button @click="showingAddModal=false">Submit</button>
-                </form>
+    <div id="myapp">
+        <div class="container">
+            <h1 class="fleft">Users</h1>
+            <button class="fright addNew" @click="showingAddModal=true">Add New</button>
+            <div class="clear"></div>
+            <hr>
+
+            <table class="list">
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Mamun</td>
+                    <td>mamun@envisio.com</td>
+                    <td>123456789</td>
+                    <td><button @click="showingEditModal=true">Edit</button></td>
+                    <td><button @click="showingDeleteModal=true">Delete</button></td>
+                </tr>
+            </table>
+        </div>
+
+        <!--Showing add model form    -->
+
+        <div class="modal" id="addModal" v-if="showingAddModal">
+            <div class="modalContainer">
+                <div class="modalHeading">
+                    <p class="fleft">Add New User </p>
+                    <button class="fright crossBox" @click="showingAddModal=false">x</button>
+                    <div class="clear"></div>
+
+                </div>
+                <div class="modalContent">
+                    <form>
+                        <label for="">Name: </label>
+                        <input type="text" placeholder="Jhon"><br><br>
+                        <label for="">Email: </label>
+                        <input type="text" placeholder="jhon@jhon.com"><br><br>
+                        <label for="">Phone: </label>
+                        <input type="text" placeholder="1225xxxx"><br><br>
+                        <button @click="showingAddModal=false">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-<!--End of Add Model Form-->
-   
-<!--Starting of Edit Model Form   -->
-    <div class="modal" id="editModal" v-if="showingEditModal">
-        <div class="modalContainer">
-            <div class="modalHeading" >
-                <p class="fleft">Edit Username </p>
-                <button class="fright crossBox" @click="showingEditModal=false">x</button>
-                <div class="clear"></div>
-                
-            </div>
-            <div class="modalContent">
-                <form>
-                    <label for="">Name: </label>
-                    <input type="text" placeholder="Jhon"><br><br>
-                    <label for="">Email: </label>
-                    <input type="text" placeholder="jhon@jhon.com"><br><br>
-                    <label for="">Phone: </label>
-                    <input type="text" placeholder="1225xxxx"><br><br>
-                    <button @click="showingEditModal=false">Save</button>
-                </form>
+        <!--End of Add Model Form-->
+
+        <!--Starting of Edit Model Form   -->
+        <div class="modal" id="editModal" v-if="showingEditModal">
+            <div class="modalContainer">
+                <div class="modalHeading">
+                    <p class="fleft">Edit Username </p>
+                    <button class="fright crossBox" @click="showingEditModal=false">x</button>
+                    <div class="clear"></div>
+
+                </div>
+                <div class="modalContent">
+                    <form>
+                        <label for="">Name: </label>
+                        <input type="text" placeholder="Jhon"><br><br>
+                        <label for="">Email: </label>
+                        <input type="text" placeholder="jhon@jhon.com"><br><br>
+                        <label for="">Phone: </label>
+                        <input type="text" placeholder="1225xxxx"><br><br>
+                        <button @click="showingEditModal=false">Save</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-<!--End of Add Model Form-->
-  
-  
-<!--Starting of Delete Model Form   -->
-    <div class="modal" id="deleteModal" v-if="showingDeleteModal">
-        <div class="modalContainer">
-            <div class="modalHeading" >
-                <p class="fleft">Edit Username </p>
-                <button class="fright crossBox" @click="showingDeleteModal=false">x</button>
-                <div class="clear"></div>
-                
-            </div>
-            <div class="modalContent">
-                <form>
+        <!--End of Edit Model Form-->
+
+
+        <!--Starting of Delete Model Form   -->
+        <div class="modal" id="deleteModal" v-if="showingDeleteModal">
+            <div class="modalContainer">
+                <div class="modalHeading">
+                    <p class="fleft">Edit Username </p>
+                    <button class="fright crossBox" @click="showingDeleteModal=false">x</button>
+                    <div class="clear"></div>
+
+                </div>
+                <div class="modalContent">
                     <p>Are You Sure You Want To Delete</p><br>
                     <button @click="showingDeleteModal=false">Yes</button>
                     <button @click="showingDeleteModal=false">No</button>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-<!--End of Add Model Form-->
-   
+        <!--End of Delte Model Form-->
 
-=======
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
-            </tr>
-        </table>
+
+
     </div>
-    
-    <div class="modal">
-        <div class="modalContainer">
-            <div class="modalHeading">Add New User</div>
-            <div class="modalContent">
-                Name:
-            </div>
-        </div>
-    </div>
->>>>>>> 1e8ba9af5c115615b185792f8f81826a431fdf0b
-    
-</div>
-<!--End of ID -->
-    
-        
-<<<<<<< HEAD
-<script type="text/javascript" src="vue.js"></script>            
-<script type="text/javascript" src="app.js"></script>                    
-=======
-            
-<script src="app.js"></script>                    
->>>>>>> 1e8ba9af5c115615b185792f8f81826a431fdf0b
+    <!--End of ID -->
+
+
+
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
 </body>
+
 </html>

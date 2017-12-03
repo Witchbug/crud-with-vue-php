@@ -77,7 +77,7 @@ button{
 .modalContent{
     min-height: 330px;
     padding: 44px;
-<<<<<<< HEAD
+
 }
 
 .crossBox{
@@ -90,6 +90,22 @@ button{
 
 input{
     padding: 5px;
-=======
->>>>>>> 1e8ba9af5c115615b185792f8f81826a431fdf0b
+}
+
+
+p.errorMessage{
+    background: #df8080;
+    color: #960202;
+    border-left: 5px solid #db1919;
+    padding: 9px;
+    margin: 22px 0;
+}
+
+
+p.successMessage{
+    background: #D8EFC2;
+    color: #104f02;
+    border-left: 5px solid #37d014;
+    padding: 9px;
+    margin: 22px 0;
 }
