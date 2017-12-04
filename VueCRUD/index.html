@@ -9,12 +9,16 @@
 
 <body>
     <div id="myapp">
+       
+       
+<!--       Showing all users --------------------------------------------->
         <div class="container">
             <h1 class="fleft">Users</h1>
             <button class="fright addNew" @click="showingAddModal=true">Add New</button>
             <div class="clear"></div>
             <hr>
-
+            <p class="successMessage" v-if="successMessage">{{successMessage}} <button @click="clearMessage();">Clear Message</button></p>
+            <p class="errorMessage" v-if="errorMessage">{{errorMessage}} <button @click="clearMessage();">Clear Message</button></p>
             <table class="list">
                 <tr>
                     <th>ID</th>
@@ -24,13 +28,13 @@
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Mamun</td>
-                    <td>mamun@envisio.com</td>
-                    <td>123456789</td>
-                    <td><button @click="showingEditModal=true">Edit</button></td>
-                    <td><button @click="showingDeleteModal=true">Delete</button></td>
+                <tr v-for="user in users">
+                    <td>{{user.id}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td><button @click="showingEditModal=true; selectUser(user);">Edit</button></td>
+                    <td><button @click="showingDeleteModal=true; selectUser(user);">Delete</button></td>
                 </tr>
             </table>
         </div>
@@ -48,13 +52,13 @@
                 <div class="modalContent">
                     <form>
                         <label for="">Name: </label>
-                        <input type="text" placeholder="Jhon"><br><br>
+                        <input type="text" placeholder="Jhon" v-model="newUser.username"><br><br>
                         <label for="">Email: </label>
-                        <input type="text" placeholder="jhon@jhon.com"><br><br>
+                        <input type="text" placeholder="jhon@jhon.com" v-model="newUser.email"><br><br>
                         <label for="">Phone: </label>
-                        <input type="text" placeholder="1225xxxx"><br><br>
-                        <button @click="showingAddModal=false">Submit</button>
+                        <input type="text" placeholder="1225xxxx" v-model="newUser.phone"><br><br>
                     </form>
+                    <button @click="showingAddModal=false; saveUser();">Submit</button>
                 </div>
             </div>
         </div>
@@ -72,13 +76,13 @@
                 <div class="modalContent">
                     <form>
                         <label for="">Name: </label>
-                        <input type="text" placeholder="Jhon"><br><br>
+                        <input type="text" v-model="clickedUser.username"><br><br>
                         <label for="">Email: </label>
-                        <input type="text" placeholder="jhon@jhon.com"><br><br>
+                        <input type="text"  v-model="clickedUser.email"><br><br>
                         <label for="">Phone: </label>
-                        <input type="text" placeholder="1225xxxx"><br><br>
-                        <button @click="showingEditModal=false">Save</button>
+                        <input type="text"  v-model="clickedUser.phone"><br><br>
                     </form>
+                    <button @click="showingEditModal=false; updateUser();">Update</button>
                 </div>
             </div>
         </div>
@@ -89,19 +93,19 @@
         <div class="modal" id="deleteModal" v-if="showingDeleteModal">
             <div class="modalContainer">
                 <div class="modalHeading">
-                    <p class="fleft">Edit Username </p>
+                    <p class="fleft">Are you sure ?</p>
                     <button class="fright crossBox" @click="showingDeleteModal=false">x</button>
                     <div class="clear"></div>
 
                 </div>
                 <div class="modalContent">
-                    <p>Are You Sure You Want To Delete</p><br>
-                    <button @click="showingDeleteModal=false">Yes</button>
+                    <p>You Want To Delete User: "<b>{{clickedUser.username}}</b>"</p><br>
+                    <button @click="showingDeleteModal=false; deleteUser();">Yes</button>
                     <button @click="showingDeleteModal=false">No</button>
                 </div>
             </div>
         </div>
-        <!--End of Delte Model Form-->
+        <!--End of Delete Model Form-->
 
 
 
@@ -109,7 +113,7 @@
     <!--End of ID -->
 
 
-
+    <script type="text/javascript" src="axios.js"></script>
     <script type="text/javascript" src="vue.js"></script>
     <script type="text/javascript" src="app.js"></script>
 

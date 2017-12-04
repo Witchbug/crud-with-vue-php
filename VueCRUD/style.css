@@ -95,7 +95,7 @@ input{
 
 p.errorMessage{
     background: #df8080;
-    color: #960202;
+    color: #300202;
     border-left: 5px solid #db1919;
     padding: 9px;
     margin: 22px 0;
@@ -109,3 +109,4 @@ p.successMessage{
     padding: 9px;
     margin: 22px 0;
 }
+

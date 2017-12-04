@@ -31,11 +31,11 @@
     if($action == 'create'){
         $username = $_POST['username'];
         $email = $_POST['email'];
-        $mobile = $_POST['mobile'];
+        $phone = $_POST['phone'];
              
-        $result = $con->query("INSERT INTO `users` (`username`, `email`, `phone`) VALUES('$username', '$email', '$mobile')");
+        $result = $con->query("INSERT INTO `users` (`username`, `email`, `phone`) VALUES('$username', '$email', '$phone')");
         if($result){ 
-            $res['message'] = "User Added successfull";
+            $res['message'] = "User Added successfully";
         }
         else{
             $res['error'] = true;
@@ -49,9 +49,9 @@
         $id = $_POST['id'];
         $username = $_POST['username'];
         $email = $_POST['email'];
-        $mobile = $_POST['mobile'];
+        $phone = $_POST['phone'];
              
-        $result = $con->query("UPDATE `users` SET `username` = '$username', `email` = '$email', `phone` = '$mobile' WHERE `id` = '$id'");
+        $result = $con->query("UPDATE `users` SET `username` = '$username', `email` = '$email', `phone` = '$phone' WHERE `id` = '$id'");
         if($result){ 
             $res['message'] = "Updated successfull";
         }
